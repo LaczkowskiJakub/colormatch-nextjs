@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Paint Coat ColorMatch
 
-## Getting Started
+Aplikacja webowa do precyzyjnego dopasowania kolorów lakierów przemysłowych z wykorzystaniem technologii rozpoznawania obrazu.
 
-First, run the development server:
+## O projekcie
 
+Paint Coat ColorMatch to narzędzie stworzone dla Paint Coat Consulting sp. z o.o., dystrybutora lakierów przemysłowych Lankwitzer. Aplikacja umożliwia skanowanie kolorów za pomocą kamery i automatyczne dopasowanie do dostępnej palety produktów.
+
+**Główne funkcje:**
+- Skanowanie kolorów w czasie rzeczywistym
+- Algorytm dopasowania do palety Lankwitzer
+- Katalog lakierów przemysłowych
+- Dedykowane rozwiązanie dla przemysłu ciężkiego i metalurgii
+
+## Stack technologiczny
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+
+## Instalacja
+
+Wymagania: Node.js 18 lub nowszy
 ```bash
+git clone https://github.com/TWOJA-NAZWA/colormatch-nextjs.git
+cd colormatch-nextjs
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja uruchomi się pod adresem http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Dostępne komendy
+```bash
+npm run dev      # Serwer deweloperski
+npm run build    # Build produkcyjny
+npm run start    # Uruchomienie buildu
+npm run lint     # Linter
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Struktura katalogów
+```
+colormatch-nextjs/
+├── app/
+│   ├── page.tsx
+│   ├── layout.tsx
+│   └── globals.css
+├── public/
+│   ├── logo21-1.png
+│   └── xLogoPAINTCOATGROUP-1.webp
+├── components/
+└── package.json
+```
 
-## Learn More
+## Status rozwoju
 
-To learn more about Next.js, take a look at the following resources:
+**Wersja aktualna (0.1.0):**
+- Strona główna z animacjami
+- Responsywny layout
+- Branding firmowy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**W planach:**
+- Moduł skanera kolorów
+- Baza danych lakierów
+- System filtrowania
+- Historia skanowań
+- Panel kontaktowy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Przyszłe rozszerzenia:**
+- Panel administracyjny
+- Eksport do PDF
+- Integracja z systemem zamówień
 
-## Deploy on Vercel
+## Design
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Aplikacja oparta jest na identyfikacji wizualnej Paint Coat:
+- Kolory: pomarańczowy, czarny, biały
+- Typografia: czcionki systemowe
+- Animacje: Framer Motion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Paint Coat Consulting sp. z o.o.
+
+Firma działa od 2005 roku jako dystrybutor lakierów przemysłowych Lankwitzer. Specjalizujemy się w doborze rozwiązań dla przemysłu ciężkiego, zastosowań warsztatowych i aplikacji półprofesjonalnych.
+
+**Kontakt:**
+- Adres: ul. Wąbrzeska 41, 85-144 Bydgoszcz
+- Telefon: +48 724 909 099
+- Email: biuro@paintcoat.pl
+- Strona: paintcoat.pl
+
+## Autor
+
+Jakub Łączkowski  
+Paint Coat Consulting sp. z o.o.
+
+## Licencja
+
+Copyright 2025 Paint Coat Consulting sp. z o.o. Wszystkie prawa zastrzeżone.

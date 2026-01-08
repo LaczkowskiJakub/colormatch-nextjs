@@ -6,223 +6,148 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-orange-950 to-black relative overflow-hidden">
-      
-      {/* Animowane pomarańczowe kule w tle */}
-      <motion.div
-        className="absolute top-20 left-20 w-96 h-96 bg-orange-600 rounded-full mix-blend-screen filter blur-3xl opacity-30"
-        animate={{
-          x: [0, 100, 0],
-          y: [0, -100, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      
-      <motion.div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl opacity-40"
-        animate={{
-          x: [0, -100, 0],
-          y: [0, 100, 0],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      <motion.div
-        className="absolute top-1/2 left-1/2 w-96 h-96 bg-yellow-600 rounded-full mix-blend-screen filter blur-3xl opacity-20"
-        animate={{
-          x: [-100, 100, -100],
-          y: [-50, 50, -50],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* Header z logami */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-20 py-6 px-8"
+      {/* Header */}
+<header className="relative z-20 border-b border-slate-700/30">
+  <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
+    <div className="flex items-center gap-8">
+      <Image 
+        src="/logo21-1.png" 
+        alt="Paint Coat Logo" 
+        width={160} 
+        height={50}
+      />
+      <div className="hidden md:block w-px h-10 bg-slate-700"></div>
+      <Image 
+        src="/xLogoPAINTCOATGROUP-1.webp" 
+        alt="Paint Coat Group Logo" 
+        width={60} 
+        height={60}
+        className="hidden md:block"
+      />
+    </div>
+    <nav className="hidden lg:flex items-center gap-8 text-slate-300 text-sm">
+      <a href="https://paintcoat.pl" className="hover:text-orange-500 transition-colors">
+        Strona główna
+      </a>
+      <a href="#colormatch" className="px-6 py-2.5 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium">
+        ColorMatch
+      </a>
+    </nav>
+  </div>
+</header>
+
+    {/* Zawartość */}
+<div className="relative z-10 min-h-screen flex flex-col items-center justify-start pt-24 px-4">
+  
+  {/* Logo + Główny przekaz */}
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="flex items-center gap-8 md:gap-12 mb-16 max-w-5xl"
+  >
+    <Image 
+      src="/xLogoPAINTCOATGROUP-1.webp" 
+      alt="Paint Coat Group" 
+      width={120} 
+      height={120}
+      className="flex-shrink-0"
+    />
+    
+    <h1 className="text-2xl md:text-3xl text-slate-400 font-light leading-relaxed text-left">
+      Precyzyjne dopasowanie kolorów lakierów przemysłowych
+    </h1>
+  </motion.div>
+
+  {/* Przyciski CTA */}
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.3 }}
+    className="flex flex-col sm:flex-row gap-4"
+  >
+    <button className="flex items-center gap-2 px-8 py-3.5 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium">
+     <Camera className="w-5 h-5" />
+     Skanuj kolor
+    </button>
+    
+    <button className="px-8 py-3.5 bg-transparent text-slate-300 rounded-lg border border-slate-600 hover:border-orange-600 hover:text-orange-500 transition-colors font-medium">
+      Katalog lakierów
+    </button>
+    
+    <button className="px-8 py-3.5 bg-transparent text-slate-300 rounded-lg border border-slate-600 hover:border-orange-600 hover:text-orange-500 transition-colors font-medium">
+      Kontakt
+    </button>
+  </motion.div>
+
+{/* Jak to działa */}
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.5 }}
+    className="mt-32 max-w-6xl w-full"
+  >
+    <h2 className="text-2xl md:text-3xl text-slate-300 font-light text-center mb-16">
+      Jak to działa?
+    </h2>
+    
+    <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+      
+      {/* Krok 1 */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="flex flex-col items-center text-center group"
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Image 
-              src="/logo21-1.png" 
-              alt="Paint Coat Logo" 
-              width={180} 
-              height={55}
-            />
-            <div className="hidden md:block w-px h-12 bg-orange-500/30"></div>
-            <Image 
-              src="/xLogoPAINTCOATGROUP-1.webp" 
-              alt="Paint Coat Group Logo" 
-              width={80} 
-              height={80}
-              className="hidden md:block"
-            />
-          </div>
-          <nav className="hidden lg:flex items-center gap-6 text-white">
-            <a href="https://paintcoat.pl" className="hover:text-orange-400 transition-colors">
-              Strona główna
-            </a>
-            <a href="#colormatch" className="px-6 py-2 bg-orange-600 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
-              ColorMatch
-            </a>
-          </nav>
+        <div className="w-20 h-20 mb-6 bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-700 group-hover:border-orange-600 transition-all">
+          <Camera className="w-10 h-10 text-slate-400 group-hover:text-orange-500 transition-colors" />
         </div>
-      </motion.header>
-
-      {/* Zawartość */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-start pt-12 px-4 text-center">
-        
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-orange-500/30">
-            <Sparkles className="w-5 h-5 text-orange-400" />
-            <span className="text-white font-medium tracking-wide">AI-Powered Color Matching dla Przemysłu</span>
-          </div>
-        </motion.div>
-
-        {/* Główny tytuł - dopasowany do stylu logo */}
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4"
-        >
-          <div className="text-5xl md:text-7xl font-bold tracking-[0.2em] text-white mb-2">
-            PAINT
-          </div>
-          <div className="text-5xl md:text-7xl font-bold tracking-[0.2em] mb-4">
-            <span className="text-orange-500">COAT</span>
-          </div>
-          <motion.div
-            className="text-4xl md:text-6xl font-light tracking-[0.3em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-600"
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            style={{
-              backgroundSize: '200% 200%',
-            }}
-          >
-            COLORMATCH
-          </motion.div>
-        </motion.h1>
-
-        {/* Podtytuł */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-orange-200 mb-3 max-w-2xl tracking-wide"
-        >
-          Precyzyjne dopasowanie kolorów lakierów przemysłowych
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-base text-orange-300 mb-8 max-w-xl"
-        >
-          Profesjonalne narzędzie od Paint Coat Consulting - lidera w dystrybucji lakierów przemysłowych Lankwitzer
-        </motion.p>
-
-        {/* Przyciski CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-2xl font-bold text-lg shadow-2xl hover:shadow-orange-500/50 transition-all tracking-wide"
-          >
-            <Camera className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-            Skanuj Kolor Lakieru
-            <Scan className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-2xl font-bold text-lg border-2 border-orange-500/30 hover:bg-white/20 transition-all tracking-wide"
-          >
-            <Palette className="w-6 h-6" />
-            Katalog Kolorów
-          </motion.button>
-        </motion.div>
-
-        {/* Karty funkcji */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="grid md:grid-cols-3 gap-6 mt-16 max-w-5xl"
-        >
-          {[
-            { 
-              icon: Camera, 
-              title: 'Skanuj Kolor', 
-              desc: 'Precyzyjne rozpoznawanie koloru lakieru z próbki',
-              color: 'from-orange-500 to-orange-600'
-            },
-            { 
-              icon: Sparkles, 
-              title: 'AI Matching', 
-              desc: 'Dopasowanie do palety Lankwitzer z dokładnością 99%',
-              color: 'from-yellow-500 to-orange-500'
-            },
-            { 
-              icon: Palette, 
-              title: 'Lakiery Przemysłowe', 
-              desc: 'Specjalistyczne lakiery dla przemysłu i metalurgii',
-              color: 'from-orange-600 to-red-600'
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-orange-500/20 hover:bg-white/10 transition-all"
-            >
-              <motion.div
-                whileHover={{ rotate: 360, scale: 1.2 }}
-                transition={{ duration: 0.6 }}
-                className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mb-6`}
-              >
-                <item.icon className="w-8 h-8 text-white" />
-              </motion.div>
-              <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
-              <p className="text-orange-200">{item.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="text-sm text-orange-500 font-medium mb-2">KROK 1</div>
+        <h3 className="text-xl text-slate-200 font-medium mb-3">Zeskanuj kolor</h3>
+        <p className="text-slate-400 text-sm leading-relaxed">
+          Użyj kamery telefonu lub komputera, aby zeskanować dowolny obiekt
+        </p>
+      </motion.div>
+      
+      {/* Krok 2 */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.9 }}
+        className="flex flex-col items-center text-center group"
+      >
+        <div className="w-20 h-20 mb-6 bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-700 group-hover:border-orange-600 transition-all">
+          <Sparkles className="w-10 h-10 text-slate-400 group-hover:text-orange-500 transition-colors" />
+        </div>
+        <div className="text-sm text-orange-500 font-medium mb-2">KROK 2</div>
+        <h3 className="text-xl text-slate-200 font-medium mb-3">AI dopasowuje lakier</h3>
+        <p className="text-slate-400 text-sm leading-relaxed">
+          Algorytm analizuje kolor i znajduje najbliższe dopasowanie w bazie Lankwitzer
+        </p>
+      </motion.div>
+      
+      {/* Krok 3 */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 1.1 }}
+        className="flex flex-col items-center text-center group"
+      >
+        <div className="w-20 h-20 mb-6 bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-700 group-hover:border-orange-600 transition-all">
+          <Palette className="w-10 h-10 text-slate-400 group-hover:text-orange-500 transition-colors" />
+        </div>
+        <div className="text-sm text-orange-500 font-medium mb-2">KROK 3</div>
+        <h3 className="text-xl text-slate-200 font-medium mb-3">Otrzymaj rekomendację</h3>
+        <p className="text-slate-400 text-sm leading-relaxed">
+          Dostaniesz kod produktu, cenę i szczegóły lakieru idealnie dopasowanego
+        </p>
+      </motion.div>
+      
+    </div>
+  </motion.div>
 
         {/* O Paint Coat z logo Group */}
         <motion.div

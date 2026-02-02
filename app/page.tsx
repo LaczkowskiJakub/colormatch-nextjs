@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+   <div className="min-h-screen relative overflow-hidden" style={{backgroundColor: '#2f2f2f'}}>
       {/* Header z logami */}
       {/* Header */}
-<header className="relative z-20 border-b border-slate-700/30">
+<header className="relative z-20 bg-[#1a1a1a] border-b border-slate-700/50">
   <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
     <div className="flex items-center gap-8">
       <Image 
@@ -37,57 +37,111 @@ export default function Home() {
     </nav>
   </div>
 </header>
-
     {/* Zawartość */}
 <div className="relative z-10 min-h-screen flex flex-col items-center justify-start pt-24 px-4">
   
-  {/* Logo + Główny przekaz */}
+{/* Logo + Główny przekaz */}
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
-    className="flex items-center gap-8 md:gap-12 mb-16 max-w-5xl"
+    className="flex items-start gap-12 mb-16 max-w-6xl w-full"
   >
-    <Image 
-      src="/xLogoPAINTCOATGROUP-1.webp" 
-      alt="Paint Coat Group" 
-      width={120} 
-      height={120}
-      className="flex-shrink-0"
-    />
+    <div className="flex-shrink-0">
+      <Image 
+        src="/xLogoPAINTCOATGROUP-1.webp" 
+        alt="Paint Coat Group" 
+        width={200} 
+        height={200}
+      />
+    </div>
     
-    <h1 className="text-2xl md:text-3xl text-slate-400 font-light leading-relaxed text-left">
-      Precyzyjne dopasowanie kolorów lakierów przemysłowych
-    </h1>
+    <div className="flex-1 pt-8">
+      <h1 className="text-3xl md:text-4xl text-slate-200 font-light leading-relaxed">
+        Precyzyjne dopasowanie lakierów przemysłowych
+      </h1>
+    </div>
   </motion.div>
 
-  {/* Przyciski CTA */}
+{/* Przyciski + Appka - Grid 2 kolumny */}
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.3 }}
-    className="flex flex-col sm:flex-row gap-4"
+    className="grid md:grid-cols-2 gap-12 max-w-6xl w-full items-center"
   >
-    <button className="flex items-center gap-2 px-8 py-3.5 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium">
-     <Camera className="w-5 h-5" />
-     Skanuj kolor
-    </button>
     
-    <button className="px-8 py-3.5 bg-transparent text-slate-300 rounded-lg border border-slate-600 hover:border-orange-600 hover:text-orange-500 transition-colors font-medium">
-      Katalog lakierów
-    </button>
+    {/* Lewa strona - Przyciski CTA */}
+    <div className="flex flex-col gap-3">
+      <button className="flex items-center justify-center gap-2 px-10 py-3 bg-gray-700 text-white text-sm font-medium tracking-wide hover:bg-gray-600 transition-colors">
+        <Camera className="w-4 h-4" />
+        SKANUJ KOLOR
+      </button>
+      
+      <button className="px-10 py-3 bg-transparent text-gray-300 text-sm font-medium tracking-wide border border-gray-600 hover:bg-gray-800 transition-all">
+        KATALOG LAKIERÓW
+      </button>
+      
+      <button className="px-10 py-3 bg-transparent text-gray-300 text-sm font-medium tracking-wide border border-gray-600 hover:bg-gray-800 transition-all">
+        KONTAKT
+      </button>
+    </div>
     
-    <button className="px-8 py-3.5 bg-transparent text-slate-300 rounded-lg border border-slate-600 hover:border-orange-600 hover:text-orange-500 transition-colors font-medium">
-      Kontakt
-    </button>
+    {/* Prawa strona - Reklama appki */}
+  <div className="bg-[#1a1a1a] border border-slate-700/50 rounded-lg p-8 flex items-center gap-8">
+      
+      {/* Mockup telefonów */}
+      <div className="flex-shrink-0">
+        <Image 
+          src="/phone-mockup.png" 
+          alt="Paint Coat ColorMatch App" 
+          width={180} 
+          height={200}
+          className="object-contain"
+        />
+      </div>
+      
+      {/* Tekst i przyciski */}
+      <div className="flex-1">
+        <h3 className="text-2xl font-semibold text-white mb-2">
+          Paint Coat ColorMatch™ App
+        </h3>
+        <p className="text-sm text-slate-400 mb-6 italic">
+          Instant color recommendations tailored to your project - powered by AI.
+        </p>
+        
+        {/* Przyciski sklepów */}
+        <div className="flex gap-3">
+          <a href="#" className="inline-block">
+            <Image 
+              src="/app-store-badge.svg" 
+              alt="Download on App Store" 
+              width={135} 
+              height={40}
+            />
+          </a>
+          <a href="#" className="inline-block">
+            <Image 
+              src="/google-play-badge.png" 
+              alt="Get it on Google Play" 
+              width={135} 
+              height={40}
+            />
+          </a>
+        </div>
+      </div>
+      
+    </div>
   </motion.div>
+
+ <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent my-10"></div>
 
 {/* Jak to działa */}
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.5 }}
-    className="mt-32 max-w-6xl w-full"
+    className="my-10 max-w-6xl w-full"
   >
     <h2 className="text-2xl md:text-3xl text-slate-300 font-light text-center mb-16">
       Jak to działa?
@@ -107,10 +161,11 @@ export default function Home() {
         </div>
         <div className="text-sm text-orange-500 font-medium mb-2">KROK 1</div>
         <h3 className="text-xl text-slate-200 font-medium mb-3">Zeskanuj kolor</h3>
-        <p className="text-slate-400 text-sm leading-relaxed">
+        <p className="text-slate-400 text-sm leading-relaxed mt-1">
           Użyj kamery telefonu lub komputera, aby zeskanować dowolny obiekt
         </p>
       </motion.div>
+      
       
       {/* Krok 2 */}
       <motion.div
@@ -124,7 +179,7 @@ export default function Home() {
         </div>
         <div className="text-sm text-orange-500 font-medium mb-2">KROK 2</div>
         <h3 className="text-xl text-slate-200 font-medium mb-3">AI dopasowuje lakier</h3>
-        <p className="text-slate-400 text-sm leading-relaxed">
+        <p className="text-slate-400 text-sm leading-relaxed mt-1">
           Algorytm analizuje kolor i znajduje najbliższe dopasowanie w bazie Lankwitzer
         </p>
       </motion.div>
@@ -141,13 +196,16 @@ export default function Home() {
         </div>
         <div className="text-sm text-orange-500 font-medium mb-2">KROK 3</div>
         <h3 className="text-xl text-slate-200 font-medium mb-3">Otrzymaj rekomendację</h3>
-        <p className="text-slate-400 text-sm leading-relaxed">
+        <p className="text-slate-400 text-sm leading-relaxed mt-1">
           Dostaniesz kod produktu, cenę i szczegóły lakieru idealnie dopasowanego
         </p>
       </motion.div>
       
     </div>
   </motion.div>
+
+ <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent my-20"></div>
+
 
         {/* O Paint Coat z logo Group */}
         <motion.div

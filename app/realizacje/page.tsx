@@ -3,12 +3,15 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Realizacje() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen relative overflow-hidden" style={{backgroundColor: '#2f2f2f'}}>
       
-     {/* Header */}
+    {/* Header */}
       <header className="relative z-20 bg-[#1a1a1a] border-b border-slate-700/50">
         <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
@@ -29,6 +32,8 @@ export default function Realizacje() {
               className="hidden md:block"
             />
           </div>
+
+          {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center gap-3">
             <Link href="/" className="px-6 py-2 text-white text-sm font-medium hover:bg-slate-800 transition-colors rounded">
               Strona główna
@@ -46,7 +51,44 @@ export default function Realizacje() {
               Kontakt
             </Link>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 hover:bg-slate-800 transition-colors rounded"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6 text-orange-500" />
+            ) : (
+              <Menu className="w-6 h-6 text-orange-500" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="lg:hidden bg-[#1a1a1a] border-t border-slate-700/50 px-8 py-4 space-y-2"
+          >
+            <Link href="/" className="block px-4 py-2 text-white hover:bg-slate-800 transition-colors rounded">
+              Strona główna
+            </Link>
+            <Link href="/colormatch" className="block px-4 py-2 text-orange-500 hover:bg-slate-800 transition-colors rounded">
+              ColorMatch
+            </Link>
+            <Link href="/dla-kogo" className="block px-4 py-2 text-orange-500 hover:bg-slate-800 transition-colors rounded">
+              Dla kogo
+            </Link>
+            <Link href="/realizacje" className="block px-4 py-2 text-orange-500 hover:bg-slate-800 transition-colors rounded">
+              Realizacje
+            </Link>
+            <Link href="/kontakt" className="block px-4 py-2 text-orange-500 hover:bg-slate-800 transition-colors rounded">
+              Kontakt
+            </Link>
+          </motion.nav>
+        )}
       </header>
 
       {/* Zawartość */}
